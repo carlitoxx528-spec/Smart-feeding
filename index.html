@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Feeding - Prueba</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Carga no bloqueante de Font Awesome -->
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print"
+        onload="this.media='all'">
+  <noscript>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </noscript>
+</head>
+
+<body>
+  <div id="app">
+    <div id="main-content">
+      <div class="container">
+        <div class="card text-center">
+          <h1>Bienvenido a Smart Feeding (Prueba)</h1>
+          <p>Cargando la aplicación...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="app_actualizado.js" defer></script>
+
+  <!-- Inicialización segura del JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      try {
+        if (typeof AuthModule !== 'undefined' && typeof Router !== 'undefined') {
+          AuthModule.checkAuth();
+          Router.init();
+          console.log("✅ Smart Feeding iniciado correctamente");
+        } else {
+          console.error("❌ No se cargaron los módulos principales (AuthModule o Router)");
+        }
+      } catch (err) {
+        console.error("❌ Error al iniciar la aplicación:", err);
+      }
+    });
+  </script>
+</body>
+</html>
+
